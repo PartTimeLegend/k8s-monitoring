@@ -13,6 +13,9 @@ module "prometheus" {
   assume_role_arn = var.assume_role_arn
   cluster_name    = var.cluster_name
   domain          = var.domain
+  depends_on = [
+    module.namespace
+  ]
 }
 
 module "grafana" {
@@ -21,4 +24,8 @@ module "grafana" {
   aws_region      = var.aws_region
   assume_role_arn = var.assume_role_arn
   cluster_name    = var.cluster_name
+  depends_on = [
+    module.prometheus
+    module.namespace,
+  ]
 }

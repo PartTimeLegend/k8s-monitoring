@@ -1,0 +1,76 @@
+name: 'Terraform'
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+ terraform:
+    name: Terraform
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+        run:
+          shell: bash
+    steps:
+      - uses: actions/checkout@v2
+
+      #- name: Configure AWS credentials
+      #  uses: aws-actions/configure-aws-credentials@v1
+      #  with:
+      #    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #    aws-region: "us-east-1" # Not used as terraform overrides
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Check Formatting
+        continue-on-error: true
+        id: fmt
+        run: terraform fmt -check
+
+      - name: Terraform init
+        continue-on-error: false
+        id: init
+        run: |
+            terraform init
+      - name: Terraform Validate
+        continue-on-error: false
+        id: validate
+        run: terraform validate
+
+      #- name: Terraform Plan
+      #  continue-on-error: false
+      #  id: plan
+      #  run: terraform plan -lock=false
+
+      - name: Update Pull Request
+        continue-on-error: true
+        uses: actions/github-script@0.9.0
+        if: github.event_name == 'pull_request'
+        env:
+          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
+            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
+            #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
+      #- name: Terraform Plan Status
+      #  if: steps.plan.outcome == 'failure'
+      #  run: exit 1
+
+      #- name: Terraform Apply
+      #  if: github.ref == 'refs/heads/master'
+      #  run: terraform apply -auto-approve
