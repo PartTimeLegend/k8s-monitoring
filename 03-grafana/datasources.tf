@@ -22,7 +22,7 @@ resource "kubernetes_manifest" "configmap_monitoring_grafana_datasources" {
     "kind" = "ConfigMap"
     "metadata" = {
       "name"      = "grafana-datasources"
-      "namespace" = data.kubernetes_namespace.namespace.metadata[0].name
+      "namespace" = var.namespace
     }
   }
 }

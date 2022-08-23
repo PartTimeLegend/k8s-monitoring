@@ -7,7 +7,7 @@ resource "kubernetes_manifest" "deployment_monitoring_prometheus_deployment" {
         "app" = "prometheus-server"
       }
       "name"      = "prometheus-deployment"
-      "namespace" = data.kubernetes_namespace.namespace.metadata[0].name
+      "namespace" = var.namespace
     }
     "spec" = {
       "replicas" = 1

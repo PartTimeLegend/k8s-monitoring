@@ -20,7 +20,6 @@ variable "domain" {
 
 variable "aws_region" {
   type    = string
-  default = "us-east-1"
 }
 
 variable "assume_role_arn" {
@@ -33,5 +32,12 @@ variable "cluster_name" {
 
 variable "namespace" {
   type    = string
-  default = "monitoring"
+}
+
+variable "cluster_ca" {
+  type = string
+}
+
+variable "cluster_auth" {
+  type = string
 }
