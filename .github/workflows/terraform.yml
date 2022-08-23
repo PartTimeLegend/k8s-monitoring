@@ -34,4 +34,4 @@ jobs:
         run: terragrunt run-all fmt
       - name: Validate
         id: validate
-        run: terragrunt run-all fmt
+        run: terragrunt run-all validate
