@@ -1,6 +1,5 @@
 variable "aws_region" {
-  type    = string
-  default = "us-east-1"
+  type = string
 }
 
 variable "assume_role_arn" {
@@ -12,8 +11,15 @@ variable "cluster_name" {
 }
 
 variable "namespace" {
-  type    = string
-  default = "monitoring"
+  type = string
+}
+
+variable "cluster_ca" {
+  type = string
+}
+
+variable "cluster_auth" {
+  type = string
 }
 
 variable "grafana_version" {

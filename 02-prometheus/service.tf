@@ -8,7 +8,7 @@ resource "kubernetes_manifest" "service_monitoring_prometheus_service" {
         "prometheus.io/scrape" = var.scrape
       }
       "name"      = "prometheus-service"
-      "namespace" = data.kubernetes_namespace.namespace.metadata[0].name
+      "namespace" = var.namespace
     }
     "spec" = {
       "ports" = [

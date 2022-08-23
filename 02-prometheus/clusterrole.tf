@@ -64,7 +64,7 @@ resource "kubernetes_manifest" "clusterrolebinding_prometheus" {
       {
         "kind"      = "ServiceAccount"
         "name"      = "default"
-        "namespace" = data.kubernetes_namespace.namespace.metadata[0].name
+        "namespace" = var.namespace
       },
     ]
   }

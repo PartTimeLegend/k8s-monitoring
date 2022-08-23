@@ -7,7 +7,7 @@ resource "kubernetes_manifest" "ingress_monitoring_prometheus_ui" {
         "kubernetes.io/ingress.class" = var.ingress_class
       }
       "name"      = "prometheus-ui"
-      "namespace" = data.kubernetes_namespace.namespace.metadata[0].name
+      "namespace" = var.namespace
     }
     "spec" = {
       "rules" = [

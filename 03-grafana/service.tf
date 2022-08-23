@@ -8,7 +8,7 @@ resource "kubernetes_manifest" "service_monitoring_grafana" {
         "prometheus.io/scrape" = "true"
       }
       "name"      = "grafana"
-      "namespace" = data.kubernetes_namespace.namespace.metadata[0].name
+      "namespace" = var.namespace
     }
     "spec" = {
       "ports" = [

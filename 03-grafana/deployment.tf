@@ -4,7 +4,7 @@ resource "kubernetes_manifest" "deployment_monitoring_grafana" {
     "kind"       = "Deployment"
     "metadata" = {
       "name"      = "grafana"
-      "namespace" = data.kubernetes_namespace.namespace.metadata[0].name
+      "namespace" = var.namespace
     }
     "spec" = {
       "replicas" = 1

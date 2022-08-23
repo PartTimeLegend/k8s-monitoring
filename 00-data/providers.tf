@@ -15,9 +15,3 @@ terraform {
   #backend "s3" {
   #}
 }
-
-provider "kubernetes" {
-  host                   = var.cluster_name
-  cluster_ca_certificate = base64decode(var.cluster_ca)
-  token                  = var.cluster_auth
-}
