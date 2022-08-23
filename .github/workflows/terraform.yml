@@ -1,4 +1,4 @@
-name: 'Terraform'
+name: 'Terragrunt'
 on:
   push:
     branches:
