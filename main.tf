@@ -25,7 +25,7 @@ module "grafana" {
   assume_role_arn = var.assume_role_arn
   cluster_name    = var.cluster_name
   depends_on = [
-    module.prometheus
-    module.namespace,
+    module.prometheus,
+    module.namespace
   ]
 }
