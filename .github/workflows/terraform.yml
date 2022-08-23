@@ -5,8 +5,8 @@ on:
       - master
   pull_request:
 jobs:
- terraform:
-    name: Terraform
+ terragrunt:
+    name: Terragrunt
     strategy:
       fail-fast: false
       matrix:
