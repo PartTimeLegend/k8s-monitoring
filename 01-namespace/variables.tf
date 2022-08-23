@@ -1,9 +1,9 @@
 variable "namespace" {
-  type    = string
+  type = string
 }
 
 variable "aws_region" {
-  type    = string
+  type = string
 }
 
 variable "assume_role_arn" {
