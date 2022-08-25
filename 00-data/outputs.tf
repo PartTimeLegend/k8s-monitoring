@@ -14,10 +14,14 @@ output "aws_region" {
   value = var.aws_region
 }
 
-output "assume_role_arn" {
-  value = var.assume_role_arn
+output "assume_role_name" {
+  value = var.assume_role_name
 }
 
 output "cluster_ca" {
   value = data.aws_eks_cluster.cluster.certificate_authority[0].data
+}
+
+output "account_id" {
+  value = var.account_id
 }

@@ -2,7 +2,7 @@ variable "aws_region" {
   type = string
 }
 
-variable "assume_role_arn" {
+variable "assume_role_name" {
   type = string
 }
 
@@ -25,4 +25,8 @@ variable "cluster_auth" {
 variable "grafana_version" {
   type    = string
   default = "latest"
+}
+
+variable "account_id" {
+  type = string
 }

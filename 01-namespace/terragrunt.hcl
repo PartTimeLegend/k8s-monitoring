@@ -8,6 +8,7 @@ dependency "data" {
     cluster_name = "foo"
     cluster_ca = "abc"
     cluster_auth = "def"
+    account_id = "123456789"
   }
 }
 
