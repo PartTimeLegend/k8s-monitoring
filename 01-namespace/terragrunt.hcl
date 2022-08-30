@@ -9,6 +9,7 @@ dependency "data" {
     cluster_ca = "abc"
     cluster_auth = "def"
     account_id = "123456789"
+    oidc_issuer = "foobar"
   }
 }
 

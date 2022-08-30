@@ -4,14 +4,14 @@ data "aws_iam_policy_document" "oidc_assume_role" {
     effect  = "Allow"
     condition {
       test     = "StringEquals"
-      variable = "${replace(data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer, "https://", "")}:sub"
+      variable = "${replace(var.oidc_issuer, "https://", "")}:sub"
       values = [
         "system:serviceaccount:${var.namespace}:loki"
       ]
     }
     principals {
       identifiers = [
-        "arn:aws:iam::${var.account_id}:oidc-provider/${replace(data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer, "https://", "")}"
+        "arn:aws:iam::${var.account_id}:oidc-provider/${replace(var.oidc_issuer, "https://", "")}"
       ]
       type = "Federated"
     }

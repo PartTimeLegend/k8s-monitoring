@@ -25,3 +25,7 @@ output "cluster_ca" {
 output "account_id" {
   value = var.account_id
 }
+
+output "oidc_issuer" {
+  value = data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer
+}
