@@ -40,3 +40,7 @@ variable "loki_docker_image" {
   type    = string
   default = "grafana/loki"
 }
+
+variable "oidc_issuer" {
+  type = string
+}

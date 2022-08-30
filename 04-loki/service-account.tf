@@ -5,8 +5,7 @@ resource "kubernetes_service_account" "this" {
       "eks.amazonaws.com/role-arn" = aws_iam_role.role.arn
     }
     labels = {
-      "app.kubernetes.io/managed-by" = "terraform"
-      "app.kubernetes.io/name"       = "loki"
+      "app.kubernetes.io/name" = "loki"
     }
     name      = "loki"
     namespace = var.namespace

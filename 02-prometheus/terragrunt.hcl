@@ -10,6 +10,7 @@ dependency "data" {
     cluster_auth = "def"
     account_id = "123456789"
     assume_role_name = "bar"
+    oidc_issuer = "foobar"
   }
 }
 
@@ -29,5 +30,4 @@ inputs = {
   cluster_auth = dependency.data.outputs.cluster_auth
   account_id = dependency.data.outputs.account_id
   assume_role_name = dependency.data.outputs.assume_role_name
-
 }
