@@ -38,9 +38,9 @@ inputs = {
   cluster_name = dependency.data.outputs.cluster_name
   cluster_ca = dependency.data.outputs.cluster_ca
   cluster_auth = dependency.data.outputs.cluster_auth
-  repository = "https://open-telemetry.github.io/opentelemetry-helm-charts"
+  repository = "https://prometheus-community.github.io/helm-charts"
   timeout = 3600
-  name = "opentelemetry-collector"
-  chart = "opentelemetry-collector"
-  chart_version = "0.29.0"
+  name = "kube-state-metrics"
+  chart = "kube-state-metrics"
+  chart_version = "4.16.0"
 }
