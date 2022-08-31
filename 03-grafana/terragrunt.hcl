@@ -25,9 +25,7 @@ dependency "namespace" {
 dependency "prometheus" {
   config_path = "../02-prometheus"
 
-  mock_outputs = {
-    namespace = "monitoring"
-  }
+  skip_outputs = true
 }
 
 inputs = {

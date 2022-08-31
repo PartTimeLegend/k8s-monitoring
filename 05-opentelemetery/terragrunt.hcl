@@ -36,6 +36,12 @@ dependency "grafana" {
   skip_outputs = true
 }
 
+dependency "loki" {
+  config_path = "../04-loki"
+
+  skip_outputs = true
+}
+
 inputs = {
   namespace = dependency.namespace.outputs.namespace
   aws_region = dependency.data.outputs.aws_region
@@ -44,6 +50,9 @@ inputs = {
   cluster_name = dependency.data.outputs.cluster_name
   cluster_ca = dependency.data.outputs.cluster_ca
   cluster_auth = dependency.data.outputs.cluster_auth
-  account_id = dependency.data.outputs.account_id
-  oidc_issuer = dependency.data.outputs.oidc_issuer
+  repository = "https://open-telemetry.github.io/opentelemetry-helm-charts"
+  timeout = 3600
+  name = "opentelemetry-collector"
+  chart = "opentelemetry-collector"
+  chart_version = "0.29.0"
 }
