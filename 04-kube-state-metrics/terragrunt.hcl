@@ -39,6 +39,6 @@ inputs = {
   repository       = "https://prometheus-community.github.io/helm-charts"
   timeout          = 3600
   name             = "kube-state-metrics"
-  chart            = "kube-state-metrics"
+  chart            = "prometheus-community/kube-state-metrics"
   chart_version    = "4.16.0"
 }
