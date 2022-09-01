@@ -33,6 +33,6 @@ inputs = {
   repository       = "https://kubernetes.github.io/ingress-nginx"
   timeout          = 3600
   name             = "ingress-nginx"
-  chart            = "ingress-nginx"
+  chart            = "ingress-nginx/ingress-nginx"
   chart_version    = "4.2.3"
 }

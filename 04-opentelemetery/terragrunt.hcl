@@ -39,6 +39,6 @@ inputs = {
   repository       = "https://open-telemetry.github.io/opentelemetry-helm-charts"
   timeout          = 3600
   name             = "opentelemetry-collector"
-  chart            = "opentelemetry-collector"
+  chart            = "opentelemetry-helm-charts/opentelemetry-collector"
   chart_version    = "0.29.0"
 }

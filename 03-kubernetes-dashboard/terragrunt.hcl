@@ -39,6 +39,6 @@ inputs = {
   repository       = "https://kubernetes.github.io/dashboard/"
   timeout          = 3600
   name             = "kubernetes-dashboard"
-  chart            = "kubernetes-dashboard"
+  chart            = "kubernetes-dashboard/kubernetes-dashboard"
   chart_version    = "2.6.1"
 }
