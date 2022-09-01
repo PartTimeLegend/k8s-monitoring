@@ -1,5 +1,5 @@
 variable "namespace" {
-  type = string
+  type = list(string)
 }
 
 variable "aws_region" {

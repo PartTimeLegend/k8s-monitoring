@@ -1,7 +1,3 @@
-variable "namespace" {
-  type = list(string)
-}
-
 variable "aws_region" {
   type = string
 }
@@ -22,6 +18,26 @@ variable "cluster_auth" {
   type = string
 }
 
-variable "account_id" {
+variable "namespace" {
+  type = string
+}
+
+variable "timeout" {
+  type = number
+}
+
+variable "repository" {
+  type = string
+}
+
+variable "name" {
+  type = string
+}
+
+variable "chart" {
+  type = string
+}
+
+variable "chart_version" {
   type = string
 }
