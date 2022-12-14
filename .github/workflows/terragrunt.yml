@@ -27,7 +27,7 @@ jobs:
       #    aws-region: "us-east-1" # Not used as terraform overrides
 
       - name: Setup Terragrunt
-        uses: autero1/action-terragrunt@v1.1.0
+        uses: autero1/action-terragrunt@v1.2.0
         with:
           terragrunt_version: 0.38.7
       - name: Format
