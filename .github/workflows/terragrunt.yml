@@ -29,7 +29,7 @@ jobs:
       - name: Setup Terragrunt
         uses: autero1/action-terragrunt@v1.2.0
         with:
-          terragrunt_version: 0.38.7
+          terragrunt_version: 0.42.5
       - name: Format
         id: fmt
         run: terragrunt run-all fmt
